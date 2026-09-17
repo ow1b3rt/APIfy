@@ -1,0 +1,6 @@
+node_modules/
+.env
+drizzle/
+public/uploads/
+frontlayouts/
+*.log

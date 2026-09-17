@@ -1,0 +1,57 @@
+{
+  "name": "appify",
+  "imports": {
+    "#/*": "./*"
+  },
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "schema:index": "node scripts/generateSchemaIndex.js",
+    "predev": "pnpm schema:index",
+    "dev": "nodemon server.js",
+    "prestart": "pnpm schema:index",
+    "start": "node server.js",
+    "test": "node --env-file=.env.example --test",
+    "newadmin": "node scripts/createAdmin.js",
+    "passwd": "node scripts/updateAdmin.js",
+    "predb:generate": "pnpm schema:index",
+    "db:generate": "drizzle-kit generate",
+    "predb:migrate": "pnpm schema:index",
+    "db:migrate": "drizzle-kit migrate",
+    "predb:push": "pnpm schema:index",
+    "db:push": "drizzle-kit push",
+    "db:studio": "drizzle-kit studio"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "frontlayouts/*"
+    ]
+  },
+  "keywords": [],
+  "author": "ow1b3rt",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "compression": "^1.8.1",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "drizzle-orm": "^0.45.2",
+    "drizzle-zod": "^0.8.3",
+    "express": "^5.2.1",
+    "helmet": "^8.3.0",
+    "http-status-codes": "^2.3.0",
+    "jsonwebtoken": "^9.0.3",
+    "morgan": "^1.11.0",
+    "multer": "^2.2.0",
+    "pg": "^8.23.0",
+    "uuid": "^14.0.2",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "drizzle-kit": "^0.31.10",
+    "nodemon": "^3.1.14"
+  }
+}
